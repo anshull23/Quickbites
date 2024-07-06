@@ -1,0 +1,121 @@
+.order {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 100px;
+}
+
+.order-left {
+  width: 100%;
+  max-width: max(30%, 500px);
+}
+
+.order-left .title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.order-left input {
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  outline-color: #EFBE5E;
+}
+
+.order-left .multi-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.order-right {
+  width: 40%;
+  max-width: (40%, 500px);
+}
+
+.payment {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.order .cart-total button {
+  margin-top: 20px;
+}
+
+.payment-options {
+  width: 60%;
+  padding: 15px;
+  border: 1px solid #EFBE5E;
+  border-radius: 4px;
+}
+
+.payment-options input {
+  margin-right: 5px;
+  color: #EFBE5E;
+}
+
+/* Radio Button CSS */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+/* Hide the default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* custom radio button */
+.check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: lightgray;
+  border-radius: 50%;
+}
+
+.container:hover input ~ .check {
+  background-color: gray;
+}
+
+.container input:checked ~ .check {
+  background-color: #EFBE5E;
+}
+
+.check:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .check:after {
+  display: block;
+}
+
+.container .check:after {
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+}
+
+@media (max-width: 750px){
+  .order{
+      flex-direction: column;
+  }
+
+  .order-right, .order-right {
+    width: 100%;
+  }
+}

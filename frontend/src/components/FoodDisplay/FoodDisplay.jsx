@@ -2,20 +2,44 @@ import React, { useContext } from "react";
 import "./FoodDisplay.css";
 import { StoreContext } from "../../context/StoreContext";
 import FoodItem from "../FoodItem/FoodItem";
+import CardLoader from "../CardLoader/CardLoader";
 
-const FoodDisplay = ({category}) => {
+const FoodDisplay = ({ category }) => {
   const { food_list } = useContext(StoreContext);
 
   return (
     <div className="food-display app" id="food-dislay">
       <h2>Our top dishes</h2>
       <div className="food-display-list">
-        {food_list.map((item,index)=>{
-            if(category==="All" || category===item.category){
-              return <FoodItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.image} />
+        {food_list.length === 0 ? (
+          <>
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+          </>
+        ) : (
+          food_list.map((item, index) => {
+            if (category === "All" || category === item.category) {
+              return (
+                <FoodItem
+                  key={index}
+                  id={item._id}
+                  name={item.name}
+                  description={item.description}
+                  price={item.price}
+                  image={item.image}
+                />
+              );
             }
-            
-        })}
+          })
+        )}
       </div>
     </div>
   );
